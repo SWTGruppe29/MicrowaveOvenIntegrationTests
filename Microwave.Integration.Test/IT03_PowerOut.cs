@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MicrowaveOvenClasses.Boundary;
+﻿using MicrowaveOvenClasses.Boundary;
 using MicrowaveOvenClasses.Interfaces;
-using NSubstitute;
 using NUnit.Framework;
-using NUnit.Framework.Internal;
 
-namespace Microwave.Test.Integration
+namespace Microwave.Integration.Test
 {
     [TestFixture]
     public class IT03_PowerOut
@@ -27,7 +22,7 @@ namespace Microwave.Test.Integration
         public void TurnOn_WasOff_CorrectOutput()
         {
             uut.TurnOn(50);
-            //output.Received().OutputLine(Arg.Is<string>(str => str.Contains("50 %")));
+            
         }
 
         [Test]
@@ -35,14 +30,14 @@ namespace Microwave.Test.Integration
         {
             uut.TurnOn(50);
             uut.TurnOff();
-            //output.Received().OutputLine(Arg.Is<string>(str => str.Contains("off")));
+            
         }
 
         [Test]
         public void TurnOff_WasOff_NoOutput()
         {
             uut.TurnOff();
-            //output.DidNotReceive().OutputLine(Arg.Any<string>());
+            
         }
 
         [Test]
