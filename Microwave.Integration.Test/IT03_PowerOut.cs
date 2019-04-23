@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MicrowaveOvenClasses.Boundary;
+﻿using MicrowaveOvenClasses.Boundary;
 using MicrowaveOvenClasses.Interfaces;
-using NSubstitute;
 using NUnit.Framework;
-using NUnit.Framework.Internal;
 
-namespace Microwave.Test.Integration
+namespace Microwave.Integration.Test
 {
     [TestFixture]
     public class IT03_PowerOut
     {
-
         private PowerTube uut;
         private IOutput output;
 
