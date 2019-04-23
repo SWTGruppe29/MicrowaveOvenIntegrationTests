@@ -7,7 +7,7 @@ using NUnit.Framework.Internal;
 namespace Microwave.Test.Integration
 {
     [TestFixture]
-    class IT12_UI_CookController
+    class IT11_UI_CookController
     {
         [SetUp]
         public void Setup()

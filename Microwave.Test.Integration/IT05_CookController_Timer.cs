@@ -6,12 +6,12 @@ using NUnit.Framework;
 namespace Microwave.Test.Integration
 {
     [TestFixture]
-    public class IT4_CookController_Timer
+    public class IT05_CookController_Timer
     {
         [SetUp]
         public void Setup()
         {
-            
+
         }
 
         [Test]

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Microwave.Test.Integration
 {
-    class IT2_DisplayOut
+    class IT03_PowerOut
     {
     }
 }

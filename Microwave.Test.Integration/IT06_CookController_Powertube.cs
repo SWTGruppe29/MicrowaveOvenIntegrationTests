@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using NUnit.Framework;
-using NUnit.Framework.Internal;
 
 namespace Microwave.Test.Integration
 {
     [TestFixture]
-    class IT9_UI_StartPowerTime
+    public class IT06_CookController_Powertube
     {
         [SetUp]
         public void Setup()

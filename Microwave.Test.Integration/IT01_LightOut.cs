@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace Microwave.Test.Integration
 {
     [TestFixture]
-    public class IT1_LightOut
+    public class IT01_LightOut
     {
         private Light _uut_light;
         private Output _uut_Output;
