@@ -39,10 +39,9 @@ namespace Microwave.Test.Integration
 
         }
 
-        [Test]
-        public void TurnOff_WasOff_CorrectOutput()
-        {
-            _uut_light.TurnOff();
+            uut.Pressed += (sender, args) => notified = true;
+            uut.Press();
+            Assert.That(notified, Is.EqualTo(true));
         }
 
 
