@@ -1,4 +1,6 @@
 ﻿using MicrowaveOvenClasses.Boundary;
+using MicrowaveOvenClasses.Interfaces;
+using NSubstitute;
 using NUnit.Framework;
 
 namespace Microwave.Test.Integration
@@ -6,31 +8,38 @@ namespace Microwave.Test.Integration
     [TestFixture]
     public class IT01_LightOut
     {
-        private Light _uut_light;
-        private Output _uut_Output;
+        private ILight _uut_light;
 
         [SetUp]
         public void Setup()
         {
-            _uut_Output = new Output();
-            _uut_light = new Light(_uut_Output);
-        }
-
-[Test]
-        public void Press_NoSubscribers_NoThrow()
-        {
-            // We don't need an assert, as an exception would fail the test case
-            uut.Press();
+            IOutput output = new Output();
+            _uut_light = new Light(output);
         }
 
         [Test]
-        public void Press_1subscriber_IsNotified()
+        public void TurnOn_WasOff_CorrectOutput()
         {
-            bool notified = false;
+            _uut_light.TurnOn();
+        }
 
-            uut.Pressed += (sender, args) => notified = true;
-            uut.Press();
-            Assert.That(notified, Is.EqualTo(true));
+        [Test]
+        public void TurnOff_WasOn_CorrectOutput()
+        {
+            _uut_light.TurnOn();
+            _uut_light.TurnOff();
+
+        }
+
+        [Test]
+        public void TurnOn_WasOn_CorrectOutput()
+        {
+            _uut_light.TurnOn();
+            _uut_light.TurnOn();
+
         }
     }
+
+
+}
 }
