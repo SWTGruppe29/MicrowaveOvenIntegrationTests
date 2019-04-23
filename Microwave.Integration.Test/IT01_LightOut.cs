@@ -28,7 +28,6 @@ namespace Microwave.Test.Integration
         {
             _uut_light.TurnOn();
             _uut_light.TurnOff();
-
         }
 
         [Test]
@@ -37,6 +36,12 @@ namespace Microwave.Test.Integration
             _uut_light.TurnOn();
             _uut_light.TurnOn();
 
+        }
+
+        [Test]
+        public void TurnOff_Was_Off_CorrectOutput()
+        {
+            _uut_light.TurnOff();;
         }
     }
 
