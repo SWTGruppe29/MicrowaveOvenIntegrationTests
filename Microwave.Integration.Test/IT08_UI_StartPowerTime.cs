@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using NUnit.Framework;
-using NUnit.Framework.Internal;
+﻿using NUnit.Framework;
 
-namespace Microwave.Test.Integration
+namespace Microwave.Integration.Test
 {
     [TestFixture]
-    class IT08_UI_StartPowerTime
+    public class IT08_UI_StartPowerTime
     {
         [SetUp]
         public void Setup()

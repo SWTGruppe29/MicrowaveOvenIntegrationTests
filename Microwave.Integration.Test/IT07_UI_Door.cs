@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
-namespace Microwave.Test.Integration
+namespace Microwave.Integration.Test
 {
     [TestFixture]
-    class IT07_UI_Door
+    public class IT07_UI_Door
     {
         [SetUp]
         public void Setup()

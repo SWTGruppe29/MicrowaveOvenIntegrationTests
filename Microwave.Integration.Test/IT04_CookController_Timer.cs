@@ -9,7 +9,7 @@ using NSubstitute;
 using NUnit.Framework;
 using Timer = MicrowaveOvenClasses.Boundary.Timer;
 
-namespace Microwave.Test.Integration
+namespace Microwave.Integration.Test
 {
     [TestFixture]
     public class IT04_CookController_Timer
