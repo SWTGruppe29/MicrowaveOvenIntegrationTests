@@ -7,7 +7,7 @@ using NUnit.Framework.Internal;
 namespace Microwave.Test.Integration
 {
     [TestFixture]
-    class IT08_UI_StartPowerTime
+    public class IT08_UI_StartPowerTime
     {
         [SetUp]
         public void Setup()

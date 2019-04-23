@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace Microwave.Test.Integration
 {
     [TestFixture]
-    class IT07_UI_Door
+    public class IT07_UI_Door
     {
         [SetUp]
         public void Setup()
