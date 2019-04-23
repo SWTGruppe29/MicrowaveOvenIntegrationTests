@@ -20,7 +20,7 @@ namespace Microwave.Test.Integration
         public void Press_NoSubscribers_NoThrow()
         {
             // We don't need an assert, as an exception would fail the test case
-            
+            uut.Press();
         }
 
         [Test]
@@ -28,7 +28,8 @@ namespace Microwave.Test.Integration
         {
             bool notified = false;
 
-           
+            uut.Pressed += (sender, args) => notified = true;
+            uut.Press();
             Assert.That(notified, Is.EqualTo(true));
         }
     }
