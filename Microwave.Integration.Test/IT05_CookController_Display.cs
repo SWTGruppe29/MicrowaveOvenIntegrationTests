@@ -3,7 +3,7 @@
 namespace Microwave.Integration.Test
 {
     [TestFixture]
-    public class IT07_UI_Door
+    public class IT05_CookController_Display
     {
         [SetUp]
         public void Setup()

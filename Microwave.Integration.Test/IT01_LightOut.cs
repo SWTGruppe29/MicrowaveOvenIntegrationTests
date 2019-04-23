@@ -1,9 +1,8 @@
 ﻿using MicrowaveOvenClasses.Boundary;
 using MicrowaveOvenClasses.Interfaces;
-using NSubstitute;
 using NUnit.Framework;
 
-namespace Microwave.Test.Integration
+namespace Microwave.Integration.Test
 {
     [TestFixture]
     public class IT01_LightOut

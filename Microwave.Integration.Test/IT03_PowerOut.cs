@@ -7,7 +7,6 @@ namespace Microwave.Integration.Test
     [TestFixture]
     public class IT03_PowerOut
     {
-
         private PowerTube uut;
         private IOutput output;
 

@@ -64,7 +64,7 @@
     <Compile Include="IT02_DisplayOut.cs" />
     <Compile Include="IT03_PowerOut.cs" />
     <Compile Include="IT04_CookController_Timer.cs" />
-    <Compile Include="IT05_CookController_Timer.cs" />
+    <Compile Include="IT05_CookController_Display.cs" />
     <Compile Include="IT06_CookController_Powertube.cs" />
     <Compile Include="IT07_UI_Door.cs" />
     <Compile Include="IT08_UI_StartPowerTime.cs" />
