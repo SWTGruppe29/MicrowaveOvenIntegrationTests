@@ -61,12 +61,12 @@ namespace MicrowaveOvenClasses.Controllers
             switch (myState)
             {
                 case States.SETPOWER:
-                    myDisplay.ShowTime(time, 0);
+                    myDisplay.ShowTime(time/60, time%60);
                     myState = States.SETTIME;
                     break;
                 case States.SETTIME:
                     time += 1;
-                    myDisplay.ShowTime(time, 0);
+                    myDisplay.ShowTime(time/60, time%60);
                     break;
             }
         }
@@ -85,7 +85,7 @@ namespace MicrowaveOvenClasses.Controllers
                 case States.SETTIME:
                     myDisplay.Clear();
                     myLight.TurnOn();
-                    myCooker.StartCooking(powerLevel, time*60);
+                    myCooker.StartCooking(powerLevel, time); //Fixed - time was * 60
                     myState = States.COOKING;
                     break;
                 case States.COOKING:
