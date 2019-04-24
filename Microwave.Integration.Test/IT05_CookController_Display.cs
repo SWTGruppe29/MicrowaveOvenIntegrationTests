@@ -31,13 +31,16 @@ namespace Microwave.Integration.Test
             uut = new CookController(timer, display, powerTube, ui);
         }
 
+        [TestCase(1000)]
         [TestCase(3000)]
         [TestCase(4000)]
         [TestCase(5000)]
+        //[TestCase(65000)]
         public void TimerTick_Seconds(int seconds)
         {
             uut.StartCooking(50, seconds);
             Thread.Sleep(seconds + 100);
+            //Expect to print number of miliseconds/1000
         }
     }
 }

@@ -50,7 +50,7 @@ namespace MicrowaveOvenClasses.Controllers
                     myState = States.SETPOWER;
                     break;
                 case States.SETPOWER:
-                    powerLevel = (powerLevel >= 700 ? 50 : powerLevel+50);
+                    powerLevel = (powerLevel >= 700 ? 50 : powerLevel + 50);
                     myDisplay.ShowPower(powerLevel);
                     break;
             }
@@ -85,7 +85,7 @@ namespace MicrowaveOvenClasses.Controllers
                 case States.SETTIME:
                     myDisplay.Clear();
                     myLight.TurnOn();
-                    myCooker.StartCooking(powerLevel, time*60);
+                    myCooker.StartCooking(powerLevel, time); //Fejl rettet
                     myState = States.COOKING;
                     break;
                 case States.COOKING:
@@ -116,7 +116,7 @@ namespace MicrowaveOvenClasses.Controllers
                 case States.SETTIME:
                     powerLevel = 50;
                     time = 1;
-                    myLight.TurnOn();
+                    myLight.TurnOn(); //
                     myDisplay.Clear();
                     myState = States.DOOROPEN;
                     break;
