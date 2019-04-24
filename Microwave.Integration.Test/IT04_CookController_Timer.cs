@@ -35,7 +35,7 @@ namespace Microwave.Integration.Test
         [TestCase(8000)]
         public void TimerExpired_PowerTubeOff_Correct(int time)
         {
-            _cookController.StartCooking(50,time);
+            _cookController.StartCooking(50,time/1000);
             Thread.Sleep(time+100);
             _powerTube.Received(1).TurnOff();
         }
@@ -46,7 +46,7 @@ namespace Microwave.Integration.Test
         [TestCase(5000)]
         public void TimerNotExpired_PowerTubeStillOn(int time)
         {
-            _cookController.StartCooking(50 , time);
+            _cookController.StartCooking(50 , time/1000);
             Thread.Sleep(time-100);
             _powerTube.Received(0).TurnOff();
         }
@@ -57,7 +57,7 @@ namespace Microwave.Integration.Test
         [TestCase(3000)]
         public void TimerTickEvvent_OutputOnDisplay_CorrectnumberOfTimesCalled(int time)
         {
-            _cookController.StartCooking(50, time);
+            _cookController.StartCooking(50, time/1000);
             Thread.Sleep(time+100); //Wait till done cooking
             _display.ReceivedWithAnyArgs(time/1000).ShowTime(1,1); //Check that display updated correct number of times. Timer event fired correctly
         }
