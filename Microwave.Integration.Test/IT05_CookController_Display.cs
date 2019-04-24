@@ -1,8 +1,10 @@
-﻿using MicrowaveOvenClasses.Boundary;
+﻿using System.Threading;
+using MicrowaveOvenClasses.Boundary;
 using MicrowaveOvenClasses.Controllers;
 using MicrowaveOvenClasses.Interfaces;
 using NSubstitute;
 using NUnit.Framework;
+using Timer = MicrowaveOvenClasses.Boundary.Timer;
 
 namespace Microwave.Integration.Test
 {
@@ -29,10 +31,13 @@ namespace Microwave.Integration.Test
             uut = new CookController(timer, display, powerTube, ui);
         }
 
-        [Test]
-        public void Test1()
+        [TestCase(3000)]
+        [TestCase(4000)]
+        [TestCase(5000)]
+        public void TimerTick_Seconds(int seconds)
         {
-
+            uut.StartCooking(50, seconds);
+            Thread.Sleep(seconds + 100);
         }
     }
 }

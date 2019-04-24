@@ -51,12 +51,15 @@ namespace Microwave.Integration.Test
         public void DoorOpen_it()
         {
             door.Open();
+            light.Received().TurnOn();
         }
 
         [Test]
         public void DoorClosed_it()
         {
-            door.Close();
+            door.Open(); // åbner døren for at skifte tilstand
+            door.Close(); //lukning af døren er testen, som skal testes.
+            light.Received().TurnOff();
         }
     }
 }
