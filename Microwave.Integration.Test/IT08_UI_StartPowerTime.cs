@@ -101,5 +101,36 @@ namespace Microwave.Integration.Test
             }
             _display.Received(1).ShowTime(times/60,times%60);
         }
+
+        [TestCase(5)]
+        [TestCase(3)]
+        [TestCase(7)]
+        public void PowerButtonPressed_PowerIncreasedToCorrectAmmount(int times)
+        {
+            for (int i = 0; i < times; ++i)
+            {
+                _powerButton.Press();
+            }
+            _display.Received(1).ShowPower(times*50);
+        }
+
+        [TestCase(10, 5)]
+        [TestCase(11, 4)]
+        [TestCase(8, 5)]
+        [TestCase(40, 3)]
+        public void StartButtonPressed_StartCookingCalledWithCorrectParameters(int timeButton, int powerButton)
+        {
+            for (int i = 0; i < powerButton; ++i)
+            {
+                _powerButton.Press();
+            }
+            for (int i = 0; i < timeButton; ++i)
+            {
+                _timeButton.Press();
+            }
+            _startButton.Press();
+            _cookController.Received(1).StartCooking(powerButton*50,timeButton);
+        }
+        
     }
 }
