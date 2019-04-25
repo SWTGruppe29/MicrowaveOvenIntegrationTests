@@ -61,5 +61,41 @@ namespace Microwave.Integration.Test
             door.Close(); //lukning af døren er testen, som skal testes.
             light.Received().TurnOff();
         }
+
+        [TestCase(3)]
+        [TestCase(10)]
+        [TestCase(7)]
+        public void SetPowerMode_DoorOpened_LightOnCalled(int times)
+        {
+            for (int i = 0; i < times; ++i)
+            {
+                powerButton.Press();
+            }
+            door.Open();
+            light.Received(1).TurnOn();
+        }
+
+        [TestCase(3)]
+        [TestCase(10)]
+        [TestCase(6)]
+        public void SetTimeMode_DoorOpened_LighOnCalled(int times)
+        {
+            powerButton.Press();
+            for (int i = 0; i < times; ++i)
+            {
+                timeButton.Press();
+            }
+            door.Open();
+            light.Received(1).TurnOn();
+        }
+        /*[Test]
+        public void IsCooking_DoorOpened_ExpectedStopCookingCalled()
+        {
+            cooker.StartCooking(50,10); //Start the cooker
+            door.Open();
+            cooker.Received(1).Stop();
+        }*/
+
+
     }
 }

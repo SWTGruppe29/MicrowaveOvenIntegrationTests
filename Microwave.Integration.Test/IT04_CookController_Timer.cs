@@ -37,6 +37,7 @@ namespace Microwave.Integration.Test
         {
             _cookController.StartCooking(50,time/1000);
             Thread.Sleep(time+100);
+            _powerTube.Received(1).TurnOn(50);
             _powerTube.Received(1).TurnOff();
         }
 
@@ -55,7 +56,7 @@ namespace Microwave.Integration.Test
         [TestCase(5000)]
         [TestCase(6000)]
         [TestCase(3000)]
-        public void TimerTickEvvent_OutputOnDisplay_CorrectnumberOfTimesCalled(int time)
+        public void TimerTickEvent_OutputOnDisplay_CorrectnumberOfTimesCalled(int time)
         {
             _cookController.StartCooking(50, time/1000);
             Thread.Sleep(time+100); //Wait till done cooking

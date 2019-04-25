@@ -1,4 +1,5 @@
-﻿using MicrowaveOvenClasses.Boundary;
+﻿using System.Security.Cryptography;
+using MicrowaveOvenClasses.Boundary;
 using MicrowaveOvenClasses.Controllers;
 using MicrowaveOvenClasses.Interfaces;
 using NSubstitute;
@@ -92,6 +93,7 @@ namespace Microwave.Integration.Test
         [TestCase(5)]
         [TestCase(4)]
         [TestCase(8)]
+        [TestCase(100)]
         public void TimeButtonPressed_TimeIncreasedToCorrectAmmount(int times)
         {
             _powerButton.Press();
@@ -114,6 +116,16 @@ namespace Microwave.Integration.Test
             _display.Received(1).ShowPower(times*50);
         }
 
+        [Test]
+        public void PowerSetToMax_PowerButtonPressed_PowertNotIncreasedToMoreThanMax()
+        {
+            for (int i = 0; i < 15; ++i)
+            {
+                _powerButton.Press();
+            }
+            _display.Received(2).ShowPower(50);
+        }
+
         [TestCase(10, 5)]
         [TestCase(11, 4)]
         [TestCase(8, 5)]
@@ -131,6 +143,14 @@ namespace Microwave.Integration.Test
             _startButton.Press();
             _cookController.Received(1).StartCooking(powerButton*50,timeButton);
         }
+        [Test]
+        public void StartCancelButtonPressed_ResetValuesAndClearDisplay_CorrectOutput()
+        {
+            _powerButton.Press();
+            _startButton.Press();
+            _display.Received(1).Clear();
+        }
+
         
     }
 }
