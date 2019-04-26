@@ -61,6 +61,7 @@ namespace Microwave.Integration.Test
         [Test]
         public void StateSetTime_DoorOpened_LightOn()
         {
+            powerButton.Press();
             timeButton.Press();
             door.Open();
         }

@@ -52,7 +52,6 @@ namespace Microwave.Integration.Test
             powerButton.Press();
             timeButton.Press();
             startCancelButton.Press();
-
         }
 
         [Test]
@@ -60,6 +59,7 @@ namespace Microwave.Integration.Test
         {
             powerButton.Press();
             powerButton.Press();
+            timeButton.Press();
             timeButton.Press();
             timeButton.Press();
             startCancelButton.Press();

@@ -69,7 +69,7 @@ namespace Microwave.Integration.Test
         {
             for (int i = 0; i < times; ++i)
             {
-                powerButton.Press();
+                powerButton.Pressed += Raise.Event();
             }
             door.Open();
             light.Received(1).TurnOn();
@@ -78,24 +78,27 @@ namespace Microwave.Integration.Test
         [TestCase(3)]
         [TestCase(10)]
         [TestCase(6)]
-        public void SetTimeMode_DoorOpened_LighOnCalled(int times)
+        public void SetTimeMode_DoorOpened_LightOnCalled(int times)
         {
-            powerButton.Press();
+            powerButton.Pressed += Raise.Event();
             for (int i = 0; i < times; ++i)
             {
-                timeButton.Press();
+                timeButton.Pressed += Raise.Event();
             }
             door.Open();
             light.Received(1).TurnOn();
         }
-        /*[Test]
-        public void IsCooking_DoorOpened_ExpectedStopCookingCalled()
+        [Test]
+        public void IsCooking_DoorOpened_ExpectedStopEventFired()
         {
-            cooker.StartCooking(50,10); //Start the cooker
+            powerButton.Pressed += Raise.Event(); //Simulate events
+            timeButton.Pressed += Raise.Event(); //set Time 
+            timeButton.Pressed += Raise.Event();
+
+            startCancelButton.Pressed += Raise.Event(); //Start cooking
             door.Open();
             cooker.Received(1).Stop();
-        }*/
-
-
+        }
+        
     }
 }
