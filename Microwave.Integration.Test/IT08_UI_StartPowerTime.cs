@@ -166,47 +166,7 @@ namespace Microwave.Integration.Test
             _display.Received(1).Clear();
         }
 
-        [TestCase(5,30)]
-        [TestCase(10,20)]
-        [TestCase(5,24)]
-        [TestCase(11,30)]
-        public void WaitUntilDoneCooking_CorrectOutput(int power, int time)
-        {
-            for (int i = 0; i < power; ++i)
-            {
-                _powerButton.Press();
-            }
 
-            for (int i = 0; i < time; ++i)
-            {
-                _timeButton.Press();
-            }
-
-            _startButton.Press();
-            Thread.Sleep(time*1000 + 2000);
-            
-
-        }
-
-        [TestCase(4, 30)]
-        [TestCase(2, 40)]
-        public void WaitUntilDoneCooking_OpenDoor_CorrectOutput(int power, int time) //Mangler at teste hvorfor der ikke kommer output fra light
-        {
-            for (int i = 0; i < power; ++i)
-            {
-                _powerButton.Press();
-            }
-
-            for (int i = 0; i < time; ++i)
-            {
-                _timeButton.Press();
-            }
-
-            _startButton.Press();
-            Thread.Sleep(time * 1000 + 2000);
-            _door.Open();
-            Thread.Sleep(100); //Wait for output from light
-        }
 
         
     }
