@@ -126,7 +126,8 @@ namespace Microwave.Test.Unit
         }
 
         /*Denne test er ændret efter ændringer I display.showtime
-         Her skal den tælle sekunder og ikke minutter.*/
+         Her skal den tælle sekunder og ikke minutter.
+         Da timebutton incrementer 1 sekund istedet for 1 minut*/
         [Test]
         public void SetPower_TimeButton_TimeIs1()
         {
@@ -139,8 +140,9 @@ namespace Microwave.Test.Unit
         }
 
         /*Denne test er ændret efter ændringer I display.showtime
-         Her skal den tælle sekunder og ikke minutter.*/
-        
+         Her skal den tælle sekunder og ikke minutter.
+         Da timebutton incrementer 1 sekund istedet for 1 minut*/
+
         [Test]
         public void SetPower_2TimeButton_TimeIs2()
         {
@@ -153,7 +155,7 @@ namespace Microwave.Test.Unit
         }
 
         /*Denne test er ændret efter ændringer I cooker.startcooking
-         Her skal den modtage minutter og ikke sekunder.*/
+         Her skal den modtager 1 sekunder istedet for 60 sekunder.*/
         [Test]
         public void SetTime_StartButton_CookerIsCalled()
         {
@@ -190,7 +192,7 @@ namespace Microwave.Test.Unit
             light.Received().TurnOn();
         }
 
-        /*Denne test er ændret så den modtager minutter istedet for sekunder i cooker.startcooking*/
+        /*Denne test er ændret så den modtager 1 sekunder istedet for 60 sekunder i cooker.startcooking*/
         [Test]
         public void Ready_PowerAndTime_CookerIsCalledCorrectly()
         {
@@ -207,7 +209,7 @@ namespace Microwave.Test.Unit
 
             cooker.Received(1).StartCooking(100, 2);
         }
-        /*Denne test er ændret så den modtager minutter istedet for sekunder i cooker.startcooking*/
+        /*Denne test er ændret så den modtager 1 sekunder istedet for 60 sekunder i cooker.startcooking*/
         /*Derudover var der fejl i power, som skal være 700 og ikke 100, da den regnes i watt og ikke procent.*/
         [Test]
         public void Ready_FullPower_CookerIsCalledCorrectly()
