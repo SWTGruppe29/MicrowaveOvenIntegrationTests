@@ -27,6 +27,8 @@ namespace Microwave.Test.Unit
             uut = new CookController(timer, display, powerTube, ui);
         }
 
+
+        /*Timer ændres, da dette den modtager milisekunder og ikke sekunder. */
         [Test]
         public void StartCooking_ValidParameters_TimerStarted()
         {
@@ -43,6 +45,7 @@ namespace Microwave.Test.Unit
             powerTube.Received().TurnOn(50);
         }
 
+        /*timer input ændres, da den modtager milisekunder og ikke sekunder.*/
         [Test]
         public void Cooking_TimerTick_DisplayCalled()
         {

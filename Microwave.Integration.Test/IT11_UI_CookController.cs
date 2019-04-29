@@ -126,7 +126,7 @@ namespace Microwave.Integration.Test
             {
                 powerButton.Press();
             }
-
+            
             for (int i = 0; i < time; ++i)
             {
                 timeButton.Press();
