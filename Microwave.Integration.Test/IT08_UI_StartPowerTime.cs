@@ -36,12 +36,10 @@ namespace Microwave.Integration.Test
             _startButton = new Button();
             _timeButton = new Button();
             _powerButton = new Button();
-            _output = new Output();
             _powerTube = new PowerTube(_output);
-            _timer = new Timer();
-            _light = new Light(_output);
-            _display = new Display(_output);
-            _cookController = new CookController(_timer,_display,_powerTube);
+            _light = Substitute.For<ILight>();
+            _display = Substitute.For<IDisplay>();
+            _cookController = Substitute.For<ICookController>();
             _userInterface = new UserInterface(_powerButton,_timeButton,_startButton,_door,_display,_light,_cookController);
         }
 
@@ -85,6 +83,7 @@ namespace Microwave.Integration.Test
             {
                 _timeButton.Press();
             }
+            _display.ReceivedWithAnyArgs(times).ShowPower(1);
         }
         [Test]
         public void StartCancelButtonPressed_StartCookingCalled()
@@ -92,6 +91,7 @@ namespace Microwave.Integration.Test
             _powerButton.Press();
             _timeButton.Press();
             _startButton.Press();
+            _cookController.Received(1).StartCooking(50,1);
         }
 
         [Test]
@@ -101,6 +101,7 @@ namespace Microwave.Integration.Test
             _timeButton.Press();
             _startButton.Press();
             _startButton.Press();
+            _cookController.Received(1).Stop();
         }
 
         [TestCase(2)]
@@ -115,6 +116,7 @@ namespace Microwave.Integration.Test
             {
                 _timeButton.Press();
             }
+            _display.Received(1).ShowTime(times/60,times%60);
         }
 
         [TestCase(5)]
@@ -126,6 +128,7 @@ namespace Microwave.Integration.Test
             {
                 _powerButton.Press();
             }
+            _display.Received(1).ShowPower(times*50);
         }
 
         [Test]
@@ -135,6 +138,7 @@ namespace Microwave.Integration.Test
             {
                 _powerButton.Press();
             }
+            _display.Received(2).ShowPower(50); //Goes back to 50 from 700
         }
 
         [TestCase(10, 5)]
@@ -152,12 +156,14 @@ namespace Microwave.Integration.Test
                 _timeButton.Press();
             }
             _startButton.Press();
+            _cookController.Received(1).StartCooking(powerButton*50,timeButton);
         }
         [Test]
         public void StartCancelButtonPressed_ResetValuesAndClearDisplay_CorrectOutput()
         {
             _powerButton.Press();
             _startButton.Press();
+            _display.Received(1).Clear();
         }
 
         [TestCase(5,30)]
@@ -178,6 +184,7 @@ namespace Microwave.Integration.Test
 
             _startButton.Press();
             Thread.Sleep(time*1000 + 2000);
+            
 
         }
 
