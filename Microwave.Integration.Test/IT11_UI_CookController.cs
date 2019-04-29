@@ -41,11 +41,13 @@ namespace Microwave.Integration.Test
             powerTube = new PowerTube(output);
             light = new Light(output);
             display = new Display(output);
+            
             cooker = new CookController(timer,display,powerTube);
 
             ui = new UserInterface(
                 powerButton, timeButton, startCancelButton,
                 door, display, light, cooker);
+
         }
 
         [Test]
@@ -124,7 +126,7 @@ namespace Microwave.Integration.Test
             {
                 powerButton.Press();
             }
-
+            
             for (int i = 0; i < time; ++i)
             {
                 timeButton.Press();

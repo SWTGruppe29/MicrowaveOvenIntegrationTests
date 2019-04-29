@@ -22,6 +22,7 @@ namespace MicrowaveOvenClasses.Controllers
             IUserInterface ui) : this(timer, display, powerTube)
         {
             UI = ui;
+            
         }
 
         public CookController(
