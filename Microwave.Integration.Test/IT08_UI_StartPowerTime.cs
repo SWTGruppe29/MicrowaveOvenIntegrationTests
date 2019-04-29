@@ -83,7 +83,7 @@ namespace Microwave.Integration.Test
             {
                 _timeButton.Press();
             }
-            _display.ReceivedWithAnyArgs(times).ShowPower(1);
+            _display.ReceivedWithAnyArgs(times).ShowTime(1,1);
         }
         [Test]
         public void StartCancelButtonPressed_StartCookingCalled()

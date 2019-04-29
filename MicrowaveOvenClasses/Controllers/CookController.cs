@@ -38,6 +38,11 @@ namespace MicrowaveOvenClasses.Controllers
             timer.TimerTick += new EventHandler(OnTimerTick);
         }
 
+        public void SetUI(IUserInterface ui)
+        {
+            UI = ui;
+        }
+
         public void StartCooking(int power, int time)
         {
             myPowerTube.TurnOn(power);
