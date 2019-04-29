@@ -41,11 +41,13 @@ namespace Microwave.Integration.Test
             powerTube = new PowerTube(output);
             light = new Light(output);
             display = new Display(output);
-            cooker = new CookController(timer,display,powerTube);
-
+            cooker = new CookController(timer, display, powerTube);
             ui = new UserInterface(
                 powerButton, timeButton, startCancelButton,
                 door, display, light, cooker);
+            cooker.SetUI(ui);
+
+            
         }
 
         [Test]
@@ -116,8 +118,8 @@ namespace Microwave.Integration.Test
 
         }
 
-        [TestCase(4, 30)]
-        [TestCase(2, 40)]
+        [TestCase(4, 5)]
+        [TestCase(2, 10)]
         public void WaitUntilDoneCooking_OpenDoor_CorrectOutput(int power, int time) //Mangler at teste hvorfor der ikke kommer output fra light
         {
             for (int i = 0; i < power; ++i)
