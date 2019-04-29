@@ -27,12 +27,12 @@ namespace Microwave.Integration.Test
             _cookController = new CookController(_N, _display, _powerTube);
         }
 
-        [TestCase(50,1000)]
-        [TestCase(30,2000)]
-        [TestCase(10,5000)]
-        [TestCase(70,3000)]
-        [TestCase(90,10000)]
-        [TestCase(75,4000)]
+        [TestCase(500,1000)]
+        [TestCase(350,2000)]
+        [TestCase(100,5000)]
+        [TestCase(700,3000)]
+        [TestCase(400,10000)]
+        [TestCase(450,4000)]
         public void OutPutTest_CookControllerPowerTube(int power, int time)
         {
             _cookController.StartCooking(power,time);
