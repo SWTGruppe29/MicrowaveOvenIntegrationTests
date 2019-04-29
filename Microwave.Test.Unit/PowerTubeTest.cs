@@ -19,6 +19,7 @@ namespace Microwave.Test.Unit
             uut = new PowerTube(output);
         }
 
+        /*sætning ændret, da den regnes i watt og ikke %*/
         [Test]
         public void TurnOn_WasOff_CorrectOutput()
         {
@@ -54,6 +55,7 @@ namespace Microwave.Test.Unit
             Assert.Throws<System.ArgumentOutOfRangeException>(() => uut.TurnOn(-1));
         }
 
+        /*ændres så den tager 1 over max watt og ikke max procent.*/
         [Test]
         public void TurnOn_HighPower_ThrowsException()
         {
