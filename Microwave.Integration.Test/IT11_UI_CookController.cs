@@ -120,7 +120,7 @@ namespace Microwave.Integration.Test
 
         [TestCase(4, 5)]
         [TestCase(2, 10)]
-        public void WaitUntilDoneCooking_OpenDoor_CorrectOutput(int power, int time) //Mangler at teste hvorfor der ikke kommer output fra light
+        public void WaitUntilDoneCooking_OpenDoor_CorrectOutput(int power, int time)
         {
             for (int i = 0; i < power; ++i)
             {

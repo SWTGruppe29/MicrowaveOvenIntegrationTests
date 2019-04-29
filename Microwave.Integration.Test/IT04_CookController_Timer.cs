@@ -70,7 +70,7 @@ namespace Microwave.Integration.Test
         public void TimerExpired_UICookingIsDoneIsCalled(int power, int time)
         {
             _cookController.StartCooking(power,time);
-            Thread.Sleep(time*1000 + 100);
+            Thread.Sleep(time*1000 + 1000);
             _userInterface.Received(1).CookingIsDone();
         }
 
